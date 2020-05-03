@@ -10,9 +10,21 @@ int Unit::get_cost(){
     return cost;
 }
 
+void Unit::add_to_squad(){
+    in_squad = true; 
+}
+
+void Unit::delete_from_squad(){
+    in_squad = false; 
+}
+
+bool Unit::is_in_squad(){
+    return in_squad;
+}
 
 Unit::Unit(int h, int p, int c):
-        health(h), power(p), cost(c)
+        health(h), power(p), cost(c),
+        in_squad(false)
         {};
 
 Cavalry::Cavalry(int h, int p, int c):
