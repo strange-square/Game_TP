@@ -9,19 +9,20 @@ class Army{
     vector<Unit*> cavalry;
     vector<Unit*> infantry;
     vector<Unit*> archers;
-    /*vector<Squad*> cavalry_squads;
-    vector<Squad*> infantry_squads;
-    vector<Squad*> archers_squads;*/
-    vector<Squad*> squads;
 
     CreateArmy* factory;
 
 public:
+    vector<Squad*> squads;
+
     Army(bool);
     ~Army();
 
+    int power();
     void create_unit(int, int);
+    void add_unit_to_squad(int, int);
     void create_squad(int, int);
+    void injury(int);
 };
 
 #endif

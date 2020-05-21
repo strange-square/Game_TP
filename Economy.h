@@ -3,7 +3,7 @@
 
 class Economy{
 private:
-    int budget;
+    int budget = 40;
 
 public:
     Economy() = default;
