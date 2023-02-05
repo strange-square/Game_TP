@@ -1,6 +1,10 @@
 #include "gtest/gtest.h"
+#include "Economy.h"
+#include "Economy.cpp"
 #include "Unit.h"
 #include "Unit.cpp"
+#include "Squad.h"
+#include "Squad.cpp"
 #include "CreateArmy.h"
 #include "CreateArmy.cpp"
 #include "Army.h"
@@ -8,6 +12,7 @@
 #include "Game.h"
 #include "Game.cpp"
 
+/******************************checkpoint1****************************/
 TEST(test1, testing_fr_cavalry)
 {
     ArmyFrFactory factory;
@@ -66,4 +71,35 @@ TEST(test6, testing_eng_infantry)
     EXPECT_EQ(inf->get_power(), 100);
     EXPECT_EQ(inf->get_cost(), 20);
     delete inf;
+}
+
+/******************************checkpoint2****************************/
+
+TEST(test7, testing_squad)
+{
+    ArmyEngFactory factory;
+    Infantry* inf = factory.create_infantry();
+    Cavalry* cav = factory.create_cavalry();
+    Archer* arc = factory.create_archer();
+    Squad* sq;
+    sq.add_unit(inf);
+    sq.add_unit(cav);
+    sq.add_unit(arc);
+    EXPECT_EQ(sq->get_size(), 3);
+    EXPECT_EQ(sq->get_health(), 400);
+    EXPECT_EQ(sq->get_power(), 500);
+    EXPECT_EQ(sq->get_cost(), 60);
+    delete inf;
+    delete cav;
+    delete arc;
+    delete sq;
+}
+
+TEST(test8, ecomomy)
+{
+    Economy e;
+    e.add(100);
+    EXPECT_EQ(e.get_budget(), 100);
+    e.lose(10);
+    EXPECT_EQ(e.get_budget(), 90);
 }

@@ -21,4 +21,3 @@ Unit* CreateEngArmy::create_infantry(){
 Unit* CreateEngArmy::create_archer(){
     return new Archer(250);
 };
-

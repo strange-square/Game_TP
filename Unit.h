@@ -6,6 +6,7 @@ private:
     int health;
     int power;
     int cost;
+    bool in_squad = false;
 
 public:
     Unit() = default;
@@ -16,6 +17,9 @@ public:
     int get_health();
     int get_power();
     int get_cost();
+    void add_to_squad();
+    void delete_from_squad();
+    bool is_in_squad();
 
     void injury(int);
 };
